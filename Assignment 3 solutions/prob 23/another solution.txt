@@ -1,0 +1,51 @@
+/*
+ * main.c
+ *
+ *  Created on: Aug 9, 2023
+ *      Author: Shaher Shah Abdalla Kamal
+ */
+
+#include <stdio.h>
+
+#define SIZE	100
+
+int frequency_of_characters[SIZE] = {0};
+
+int* freq_of_characters (char* input);
+
+int main ()
+{
+	char string[SIZE];
+	gets(string);
+	int* frequency = freq_of_characters(string);
+	int i = 0;
+	printf("frequency of character in the string:\n");
+	while(string[i] != '\0')
+	{
+		printf("%c\t%d\n",string[i], frequency[i]);
+		i++;
+	}
+}
+
+int* freq_of_characters (char* input)
+{
+	int i = 0, j;
+	while (input[i] != '\0')
+	{
+		j = 0;
+		while (input[j] != '\0')
+		{
+			if (input[i] == input[j])
+			{
+				frequency_of_characters[i]++;
+				j++;
+			}
+			else
+			{
+				j++;
+			}
+		}
+		i++;
+	}
+	return frequency_of_characters;
+}
